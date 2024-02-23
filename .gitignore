@@ -1,0 +1,8 @@
+.DS_Store
+.env
+.idea/
+__pycache__/
+.pytest_cache/
+*.log
+.DS_Store
+Thumbs.db
