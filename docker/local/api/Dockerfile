@@ -1,23 +1,20 @@
 # Usa una imagen base de Python
 FROM python:3.12-alpine
 
-# Establece el directorio de trabajo en /app
+# set folder
 WORKDIR /app
 
-# Copia el archivo requirements.txt al contenedor
+# copy requirements.txt
 COPY requirements.txt /app/requirements.txt
 
-# Instala las dependencias del proyecto
+# install requirements.txt
 RUN pip install -U pip
 RUN pip install -r /app/requirements.txt
 
-# Copia el resto del código al contenedor
-COPY /src /app
+# copy source code
+COPY src /app/src
 
-# Expón el puerto en el que se ejecutará la aplicación
-EXPOSE 8000
-
-WORKDIR /app/src
-
-# Comando para ejecutar la aplicación
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Copy script for running
+COPY /docker/local/api/start /start
+RUN sed -i 's/\r$//g' /start
+RUN chmod +x /start
