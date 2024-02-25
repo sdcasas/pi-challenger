@@ -111,8 +111,14 @@ pip install -r requirements.txt
 ### Con Docker (recomendado)
 
 ```bash
+# running
 cd pi-challenger
-docker-compose up -d --build
+docker-compose build 
+docker-compose up
+
+# destroy deploy
+docker-compose down
+docker rmi image_pi_backend_app
 ```
 
 La API estará disponible en `http://localhost:8000`.
@@ -134,3 +140,7 @@ pip install fastapi2postman==0.1.2
 fastapi2postman --app src/main.py --output postman_collection.json
 ```
 
+
+### Migrations
+
+* [Documentation](src/migrations/README.md)
