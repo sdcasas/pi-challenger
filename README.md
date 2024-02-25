@@ -15,7 +15,7 @@ Se brinda un ejemplo de la estructura de datos:
           "mass": 77,
           "hair_color": "blond",
           "skin_color": "fair",
-          "eye_color": "blue”,
+          "eye_color": "blue",
           "birth_year": 1998
 }
 ```
