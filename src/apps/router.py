@@ -5,14 +5,13 @@ from apps.exceptions import CharacterDoesNotExist
 from settings.database import get_db
 
 from apps.services import CharacterCrud
-from apps.schemas import Character as CharacterSchema, CharacterDelete
-
+from apps.schemas import Character as CharacterSchema, CharacterDelete, CharacterBasic
 
 router = APIRouter()
 
 
 @router.get("/getAll", status_code=status.HTTP_200_OK)
-def get_all_characters(db: Session = Depends(get_db)) -> list[CharacterSchema]:
+def get_all_characters(db: Session = Depends(get_db)) -> list[CharacterBasic]:
     return CharacterCrud(db).get_all()
 
 

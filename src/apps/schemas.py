@@ -1,15 +1,18 @@
 from pydantic import BaseModel
 
 
-class Character(BaseModel):
+class CharacterBasic(BaseModel):
     id: int
     name: str
     height: int
     mass: int
-    hair_color: str
-    skin_color: str
     eye_color: str
     birth_year: int
+
+
+class Character(CharacterBasic):
+    hair_color: str
+    skin_color: str
     
     class Config:
         orm_mode = True
